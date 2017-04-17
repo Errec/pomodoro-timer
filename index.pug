@@ -10,29 +10,29 @@ html(lang="en")
     //[if lt IE 9]> <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script><script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> <![endif]
 
   body
-    header
-      h1 pomodoro clock
-    main
-      section
-        div
-          p break length
-          div
-            button -
-            p 00
-            button +
-        div
-          p session length
-          div
-            button -
-            p 00
-            button +
-      section
-        p 0:00
-      section
-        button start
-        button reset
-        button pause/resume
-    footer
-      p made by errec
+    header.header
+      h1.header__title pomodoro clock
+    main.main
+      section.main__section-input
+        div.main__break
+          p.main__break-title break length
+          div.main__break-wrapper.main__wrapper
+            button.main__break-minus-btn#break-minus -
+            p.main__break--input#break-input 01
+            button.main__break-plus-btn#break-plus +
+        div.main__session
+          p.main__session-title session length
+          div.main__session-wrapper.main__wrapper
+            button.main__session-minus-btn#session-minus -
+            p.main__session--input#session-input 01
+            button.main__session-plus-btn#session-plus +
+      section.main__section-display
+        p.main__display-counter 25:00
+      section.main__section-panel
+        button.main__start-btn#start-btn start
+        button.main__reset-btn#reset-btn reset
+        button.main__pause-btn#pause-btn pause/resume
+    footer.footer
+      p.footer__text made by errec
 
   script(src="js/bundle.min.js")
