@@ -15,6 +15,6 @@ var breakValue = {
       this.decTime.on('click', this.decrement.bind(this)); //TODO
     },
     render:function () {
-      this.breakInput.textContent = toString(breakValue);
+      this.breakInput.textContent = breakValue.toString();
     }
 };
