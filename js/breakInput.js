@@ -1,4 +1,4 @@
-var breakValue = {
+var setBreak = {
     breakValue: 1,
     init: function() {
       this.cacheDom();
@@ -11,10 +11,18 @@ var breakValue = {
       this.decTime    = getElementById('break-decrease');
     },
     bindEvents: function() {
-      this.incTime.on('click', this.increment.bind(this)); //TODO
-      this.decTime.on('click', this.decrement.bind(this)); //TODO
+      this.incTime.on('click', this.increment.bind(this));
+      this.decTime.on('click', this.decrement.bind(this));
     },
-    render:function () {
+    render: function () {
       this.breakInput.textContent = breakValue.toString();
+    },
+    increment: function () {
+      this.breakValue === 120 ? '' : this.breakValue++;
+      render();
+    },
+    decrement: function () {
+      this.breakValue === 1 ? '' : this.breakValue--;
+      render();
     }
 };
