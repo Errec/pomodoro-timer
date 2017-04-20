@@ -3,7 +3,7 @@ var breakValue = {
     init: function() {
       this.cacheDom();
       this.bindEvents();
-      this.render(); //TODO
+      this.render();
     },
     cacheDom: function () {
       this.breakInput = getElementById('break-input');
@@ -13,5 +13,8 @@ var breakValue = {
     bindEvents: function() {
       this.incTime.on('click', this.increment.bind(this)); //TODO
       this.decTime.on('click', this.decrement.bind(this)); //TODO
+    },
+    render:function () {
+      this.breakInput.textContent = toString(breakValue);
     }
 };
