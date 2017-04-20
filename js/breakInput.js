@@ -6,23 +6,25 @@ var setBreak = {
       this.render();
     },
     cacheDom: function () {
-      this.breakInput = getElementById('break-input');
-      this.incTime    = getElementById('break-increase');
-      this.decTime    = getElementById('break-decrease');
+      this.breakInput = document.getElementById('break-input');
+      this.incTime    = document.getElementById('break-increase');
+      this.decTime    = document.getElementById('break-decrease');
     },
     bindEvents: function() {
-      this.incTime.on('click', this.increment.bind(this));
-      this.decTime.on('click', this.decrement.bind(this));
+      this.incTime.addEventListener('click', this.increment.bind(this));
+      this.decTime.addEventListener('click', this.decrement.bind(this));
     },
     render: function () {
-      this.breakInput.textContent = breakValue.toString();
+      this.breakInput.textContent = this.breakValue.toString();
     },
     increment: function () {
-      this.breakValue === 120 ? '' : this.breakValue++;
-      render();
+      this.breakValue === 60 ? '' : this.breakValue++;
+      this.render();
     },
     decrement: function () {
       this.breakValue === 1 ? '' : this.breakValue--;
-      render();
+      this.render();
     }
 };
+
+setBreak.init();
