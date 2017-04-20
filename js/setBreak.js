@@ -14,14 +14,14 @@ var setBreak = {
       this.incTime.addEventListener('click', this.increment.bind(this));
       this.decTime.addEventListener('click', this.decrement.bind(this));
     },
-    render: function () {
+    render: function() {
       this.breakInput.textContent = this.breakValue.toString();
     },
-    increment: function () {
+    increment: function() {
       this.breakValue === 60 ? '' : this.breakValue++;
       this.render();
     },
-    decrement: function () {
+    decrement: function() {
       this.breakValue === 1 ? '' : this.breakValue--;
       this.render();
     }
