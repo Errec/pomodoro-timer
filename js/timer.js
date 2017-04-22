@@ -6,6 +6,12 @@ var timer = (function() {
   var start        = document.getElementById('start-btn');
   var reset        = document.getElementById('reset-btn');
 // Bind click events
-  start.addEventListener('click', _startTimer.bind());
-  reset.addEventListener('click', _resetTimer.bind());
+  start.addEventListener('click', _startTimer.bind()); //TODO: _startTimer
+  reset.addEventListener('click', _resetTimer.bind()); //TODO: _resetTimer
+// Render the timer display
+  _render();
+
+  function _render() {
+    timerDisplay.textContent = sessionValue.toString();
+  }
 })();
