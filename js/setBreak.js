@@ -1,12 +1,12 @@
 var setBreak = (function(){
-  var breakValue = 1;
+  var breakValue = 4;
 // Cache the DOM
   var breakInput = document.getElementById('break-input');
   var incTime    = document.getElementById('break-increase');
   var decTime    = document.getElementById('break-decrease');
 //  Bind click events
-  incTime.addEventListener('click', _increment.bind());
-  decTime.addEventListener('click', _decrement.bind());
+  incTime.addEventListener('click', _increment);
+  decTime.addEventListener('click', _decrement);
 // Render the initial value from breakValue
   _render();
 

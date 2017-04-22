@@ -1,12 +1,12 @@
 var setSession = (function(){
-  var sessionValue = 1;
+  var sessionValue = 7;
 // Cache the DOM
   var sessionInput = document.getElementById('session-input');
   var incTime      = document.getElementById('session-increase');
   var decTime      = document.getElementById('session-decrease');
 //  Bind click events
-  incTime.addEventListener('click', _increment.bind());
-  decTime.addEventListener('click', _decrement.bind());
+  incTime.addEventListener('click', _increment);
+  decTime.addEventListener('click', _decrement);
 // Render the initial value from sessionValue
   _render();
 
