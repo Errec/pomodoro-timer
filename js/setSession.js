@@ -2,8 +2,8 @@ var setSession = (function(){
   var sessionValue = 1;
 // Cache the DOM
   var sessionInput = document.getElementById('session-input');
-  var incTime    = document.getElementById('session-increase');
-  var decTime    = document.getElementById('session-decrease');
+  var incTime      = document.getElementById('session-increase');
+  var decTime      = document.getElementById('session-decrease');
 //  Bind click events
   incTime.addEventListener('click', _increment.bind());
   decTime.addEventListener('click', _decrement.bind());
