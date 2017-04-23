@@ -1,6 +1,6 @@
 var timer = (function() {
   var breakValue   = 5; //TODO: add listener or coupling
-  var sessionValue = 30;  //TODO: add listener or coupling
+  var sessionValue = 10;  //TODO: add listener or coupling
 // Cache the DOM
   var timerDisplay = document.getElementById('timer-display');
   var start        = document.getElementById('start-btn');
@@ -14,4 +14,18 @@ var timer = (function() {
   function _render() {
     timerDisplay.textContent = sessionValue.toString();
   }
+
+  function _startTimer() {
+    var sessionCountdown = setInterval(countdown, 1000);
+  }
+
+  function _resetTimer() {
+    return;
+  }
+
+function countdown() {
+  sessionValue--;
+  _render();
+}
+
 })();
