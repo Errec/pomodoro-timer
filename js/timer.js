@@ -1,9 +1,6 @@
 var timer = (function() {
-  var breakValue   = 4; //TODO: add listener or coupling
-  var sessionValue = 7;  //TODO: add listener or coupling
-  var displayValue = sessionValue;
-  var playOn = true;
-  // var date = new Date();
+  var displayValue = setSession.getValue();
+  var playOn       = true;
 // Cache the DOM
   var timerDisplay = document.getElementById('timer-display');
   var start        = document.getElementById('start-btn');
@@ -23,8 +20,8 @@ var timer = (function() {
   }
 
   function _runDisplay() {
-    var sessionTime = sessionValue;
-    var breakTime = breakValue;
+    var sessionTime = setSession.getValue() + 1;
+    var breakTime   = setBreak.getValue() + 1;
 
     var myCountdown = setInterval(function() {
       if (sessionTime > 0) {
@@ -46,7 +43,7 @@ var timer = (function() {
       } else {
         return;
       }
-    },(sessionValue + breakValue) * 1000);
+    },(sessionTime + breakTime) * 1000);
   }
 
 })();
