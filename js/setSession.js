@@ -1,6 +1,7 @@
 var setSession = (function(){
   var sessionValue = 7;
 // Cache the DOM
+  var timerDisplay = document.getElementById('timer-display');
   var sessionInput = document.getElementById('session-input');
   var incTime      = document.getElementById('session-increase');
   var decTime      = document.getElementById('session-decrease');
@@ -12,6 +13,7 @@ var setSession = (function(){
 
   function _render() {
     sessionInput.textContent = sessionValue.toString();
+    timerDisplay.textContent = sessionValue.toString();
   }
 
   function _increment() {
