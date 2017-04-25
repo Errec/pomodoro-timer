@@ -8,7 +8,7 @@ var timer = (function() {
   var start        = document.getElementById('start-btn');
   var reset        = document.getElementById('reset-btn');
 // Bind click events
-  start.addEventListener('click', _startBtn);
+  start.addEventListener('click', _startCountdown);
   reset.addEventListener('click', _resetTimer);
 // Render the timer display
   _render();
@@ -18,6 +18,7 @@ var timer = (function() {
   }
 
   function _resetTimer() {
+    start.disabled = false;
     playOn = false;
     clearTimeout(myCountdown);
     clearTimeout(loopTime);
@@ -25,15 +26,11 @@ var timer = (function() {
     _render();
   }
 
-  function _startBtn() {
-    _togglePlayBtnText();
-    _runDisplay();
-  }
-
-  function _runDisplay() {
+  function _startCountdown() {
     var sessionTime = setSession.getValue() + 1;
     var breakTime   = setBreak.getValue() + 1;
     playOn          = true;
+    start.disabled = true;
 
     myCountdown = setInterval(function() {
       if(sessionTime > 0) {
@@ -51,15 +48,11 @@ var timer = (function() {
     loopTime = setTimeout(function() {
       clearTimeout(myCountdown);
       if (playOn) {
-         _runDisplay();
+         _startCountdown();
       } else {
         return;
       }
-    },(sessionTime + breakTime) * 1000);
+    },(sessionTime + breakTime + 1) * 1000);
   }
-
-function _togglePlayBtnText() {
-  start.textContent === 'Start' ?  start.textContent = 'Pause' : start.textContent = 'Start';
-}
 
 })();
