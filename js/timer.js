@@ -2,11 +2,16 @@ var timer = (function() {
   var displayValue = setSession.getValue();
   var playOn       = true;
   var myCountdown  = null;
-  var loopTime     = null;
+  var loopTimer    = null;
+  var disabled     = false;
 // Cache the DOM
-  var timerDisplay = document.getElementById('timer-display');
-  var start        = document.getElementById('start-btn');
-  var reset        = document.getElementById('reset-btn');
+  var timerDisplay  = document.getElementById('timer-display');
+  var start         = document.getElementById('start-btn');
+  var reset         = document.getElementById('reset-btn');
+  var sessionIncBtn = document.getElementById('session-increase');
+  var sessionDecBtn = document.getElementById('session-decrease');
+  var breakIncBtn   = document.getElementById('break-increase');
+  var breakDecBtn   = document.getElementById('break-decrease');
 // Bind click events
   start.addEventListener('click', _startCountdown);
   reset.addEventListener('click', _resetTimer);
@@ -18,19 +23,19 @@ var timer = (function() {
   }
 
   function _resetTimer() {
-    start.disabled = false;
+    _toggleBtns();
     playOn = false;
     clearTimeout(myCountdown);
-    clearTimeout(loopTime);
+    clearTimeout(loopTimer);
     displayValue = setSession.getValue();
     _render();
   }
 
   function _startCountdown() {
+    _toggleBtns();
     var sessionTime = setSession.getValue() + 1;
     var breakTime   = setBreak.getValue() + 1;
     playOn          = true;
-    start.disabled = true;
 
     myCountdown = setInterval(function() {
       if(sessionTime > 0) {
@@ -45,7 +50,7 @@ var timer = (function() {
       }
     }, 1000);
 
-    loopTime = setTimeout(function() {
+    loopTimer = setTimeout(function() {
       clearTimeout(myCountdown);
       if (playOn) {
          _startCountdown();
@@ -53,6 +58,24 @@ var timer = (function() {
         return;
       }
     },(sessionTime + breakTime + 1) * 1000);
+  }
+
+  function _toggleBtns() {
+    if(disabled) {
+      disabled               = false;
+      start.disabled         = false;
+      sessionIncBtn.disabled = false;
+      sessionDecBtn.disabled = false;
+      breakIncBtn.disabled   = false;
+      breakDecBtn.disabled   = false;
+    } else {
+      disabled               = true;
+      start.disabled         = true;
+      sessionIncBtn.disabled = true;
+      sessionDecBtn.disabled = true;
+      breakIncBtn.disabled   = true;
+      breakDecBtn.disabled   = true;
+    }
   }
 
 })();
