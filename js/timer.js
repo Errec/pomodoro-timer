@@ -8,8 +8,8 @@ var timer = (function() {
   var start        = document.getElementById('start-btn');
   var reset        = document.getElementById('reset-btn');
 // Bind click events
-  start.addEventListener('click', _runDisplay);
-  reset.addEventListener('click', _resetTimer); //TODO: _resetTimer
+  start.addEventListener('click', _startBtn);
+  reset.addEventListener('click', _resetTimer);
 // Render the timer display
   _render();
 
@@ -23,6 +23,11 @@ var timer = (function() {
     clearTimeout(loopTime);
     displayValue = setSession.getValue();
     _render();
+  }
+
+  function _startBtn() {
+    _togglePlayBtnText();
+    _runDisplay();
   }
 
   function _runDisplay() {
@@ -52,5 +57,9 @@ var timer = (function() {
       }
     },(sessionTime + breakTime) * 1000);
   }
+
+function _togglePlayBtnText() {
+  start.textContent === 'Start' ?  start.textContent = 'Pause' : start.textContent = 'Start';
+}
 
 })();
