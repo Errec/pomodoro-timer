@@ -1,5 +1,5 @@
 var setSession = (function(){
-  var sessionValue = 7;
+  var sessionValue = 3;
 // Cache the DOM
   var timerDisplay = document.getElementById('timer-display');
   var sessionInput = document.getElementById('session-input');

@@ -1,12 +1,14 @@
 var timer = (function() {
   var displayValue = setSession.getValue();
   var playOn       = true;
+  var myCountdown  = null;
+  var loopTime     = null;
 // Cache the DOM
   var timerDisplay = document.getElementById('timer-display');
   var start        = document.getElementById('start-btn');
   var reset        = document.getElementById('reset-btn');
 // Bind click events
-  start.addEventListener('click', _runDisplay); //TODO: _startTimer
+  start.addEventListener('click', _runDisplay);
   reset.addEventListener('click', _resetTimer); //TODO: _resetTimer
 // Render the timer display
   _render();
@@ -16,27 +18,32 @@ var timer = (function() {
   }
 
   function _resetTimer() {
-    return;
+    playOn = false;
+    clearTimeout(myCountdown);
+    clearTimeout(loopTime);
+    displayValue = setSession.getValue();
+    _render();
   }
 
   function _runDisplay() {
     var sessionTime = setSession.getValue() + 1;
     var breakTime   = setBreak.getValue() + 1;
+    playOn          = true;
 
-    var myCountdown = setInterval(function() {
-      if (sessionTime > 0) {
+    myCountdown = setInterval(function() {
+      if(sessionTime > 0) {
       displayValue = --sessionTime;
       _render();
       }
-      else if (sessionTime === 0) {
-        if (breakTime > 0) {
+      else if(sessionTime === 0) {
+        if(breakTime > 0) {
         displayValue = --breakTime;
         _render();
         }
       }
     }, 1000);
 
-    setTimeout(function (argument) {
+    loopTime = setTimeout(function() {
       clearTimeout(myCountdown);
       if (playOn) {
          _runDisplay();
