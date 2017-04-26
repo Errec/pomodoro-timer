@@ -5,7 +5,6 @@ var timer = (function() {
   var loopTimer    = null;
   var disable      = false;
 // Cache the DOM
-  var timerDisplay  = document.getElementById('timer-display');
   var start         = document.getElementById('start-btn');
   var reset         = document.getElementById('reset-btn');
   var sessionIncBtn = document.getElementById('session-increase');
@@ -19,7 +18,7 @@ var timer = (function() {
   _render();
 
   function _render() {
-    timerDisplay.textContent = displayValue.toString();
+    console.log(displayValue);
   }
 
   function _resetTimer() {
