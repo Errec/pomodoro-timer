@@ -15,10 +15,12 @@ var timer = (function() {
   start.addEventListener('click', _startCountdown);
   reset.addEventListener('click', _resetTimer);
 // Render the timer display
-  _render();
 
-  function _render() {
-    console.log(displayValue);
+  function _render(id, type) {
+    var rectangle = document.getElementById('rect' + id);
+    var reg       = new RegExp('(^| )'+ 'rect-animate-color' +'($| )','g');
+
+    type === 'session' ? rectangle.className += " rect-animate-color" : rectangle.className = rectangle.className.replace(reg,' ');
   }
 
   function _resetTimer() {
