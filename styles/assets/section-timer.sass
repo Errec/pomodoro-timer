@@ -19,3 +19,17 @@
   margin-bottom: 2px
   background-color: $grey0
 
+.rect-animate-color
+  animation-name: change-bg
+  animation-fill-mode: forwards
+  animation-duration: 4s
+
+@keyframes change-bg
+  0%
+    background-color: $green0
+  25%
+    background-color: $green1
+  50%
+    background-color: $green2
+  100%
+    background-color: $green3
