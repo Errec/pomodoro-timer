@@ -29,10 +29,14 @@ var timer = (function() {
     _disableBtns(false);
     disable = false;
     playOn = false;
-    clearTimeout(myCountdown);
+    clearTimeout(mySessionCountdown);
+    clearTimeout(myBreakCountdown);
+    clearTimeout(myBreakInnerCountdown);
     clearTimeout(loopTimer);
     displayValue = setSession.getValue();
-    _render();
+    for (var i = 0; i <= N_RECT; i++) {
+      _render(i,'reset');
+    }
   }
 
   function _startCountdown() {
