@@ -1,9 +1,11 @@
 var timer = (function() {
-  var displayValue = setSession.getValue();
-  var playOn       = true;
-  var myCountdown  = null;
-  var loopTimer    = null;
-  var disable      = false;
+  var N_RECT                = 367;
+  var playOn                = true;
+  var mySessionCountdown    = null;
+  var myBreakCountdown      = null;
+  var myBreakInnerCountdown = null;
+  var loopTimer             = null;
+  var disable               = false;
 // Cache the DOM
   var start         = document.getElementById('start-btn');
   var reset         = document.getElementById('reset-btn');
@@ -34,28 +36,38 @@ var timer = (function() {
   }
 
   function _startCountdown() {
-    var sessionTime = setSession.getValue() + 1;
-    var breakTime   = setBreak.getValue() + 1;
-    playOn          = true;
+    var sessionTime     = setSession.getValue() + 1;
+    var breakTime       = setBreak.getValue() + 1;
+    var rectSessionTime = sessionTime / N_RECT;
+    var rectBreakTime   =  breakTime / N_RECT;
+    var s = 0;
+    var b = 0;
+    playOn              = true;
+
     if(!disable) {
     _disableBtns(true);
     }
 
-    myCountdown = setInterval(function() {
-      if(sessionTime > 0) {
-      displayValue = --sessionTime;
-      _render();
+    mySessionCountdown = setInterval(function() {
+      if(s <= N_RECT) {
+      _render(s,'session');
+      s++;
       }
-      else if(sessionTime === 0) {
-        if(breakTime > 0) {
-        displayValue = --breakTime;
-        _render();
+    }, rectSessionTime * 1000);
+
+    myBreakCountdown = setTimeout(function () {
+      myBreakInnerCountdown = setInterval(function() {
+        if(b <= N_RECT) {
+          _render(b,'break');
+          b++;
         }
-      }
-    }, 1000);
+      }, rectBreakTime * 1000);
+    }, sessionTime * 1000);
 
     loopTimer = setTimeout(function() {
-      clearTimeout(myCountdown);
+      clearTimeout(mySessionCountdown);
+      clearTimeout(myBreakCountdown);
+      clearTimeout(myBreakInnerCountdown);
       if (playOn) {
          _startCountdown();
       } else {

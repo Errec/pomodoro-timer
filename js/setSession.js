@@ -1,5 +1,5 @@
 var setSession = (function(){
-  var sessionValue = 15;
+  var sessionValue = 20;
 // Cache the DOM
   var sessionInput = document.getElementById('session-input');
   var incTime      = document.getElementById('session-increase');
