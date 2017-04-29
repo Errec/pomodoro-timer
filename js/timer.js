@@ -1,5 +1,5 @@
 var timer = (function() {
-  var N_RECT                = 367;
+  var N_RECT                = 364;
   var playOn                = true;
   var mySessionCountdown    = null;
   var myBreakCountdown      = null;
@@ -7,6 +7,7 @@ var timer = (function() {
   var loopTimer             = null;
   var disable               = false;
 // Cache the DOM
+  var timerWrapper  = document.getElementById('timer-wrapper');
   var start         = document.getElementById('start-btn');
   var reset         = document.getElementById('reset-btn');
   var sessionIncBtn = document.getElementById('session-increase');
@@ -17,6 +18,21 @@ var timer = (function() {
   start.addEventListener('click', _startCountdown);
   reset.addEventListener('click', _resetTimer);
 // Render the timer display
+
+_updateNumberOfRectangles();
+
+  function _updateNumberOfRectangles() {
+    var d       = new Date();
+    var weekDay = d.getDay();
+
+    for (var i = 0; i < weekDay; i++) {
+      var div = document.createElement("div");
+      div.setAttribute("id", "rect" + (N_RECT + 1 + i) );
+      div.className += " rect";
+      timerWrapper.appendChild(div);
+    }
+    N_RECT = N_RECT + weekDay;
+  }
 
   function _render(id, type) {
     var rectangle = document.getElementById('rect' + id);
@@ -44,8 +60,8 @@ var timer = (function() {
     var breakTime       = setBreak.getValue() + 1;
     var rectSessionTime = sessionTime / N_RECT;
     var rectBreakTime   =  breakTime / N_RECT;
-    var s = 0;
-    var b = 0;
+    var s               = 0;
+    var b               = 0;
     playOn              = true;
 
     if(!disable) {
