@@ -9,29 +9,30 @@ html(lang="en")
     link(rel="stylesheet" href="css/main.min.css")
 
   body
-    header.header
-      h1.header__title POMODORO TIMER
-    main.main
-      section.main__section-input
-        section.section-input__break
-          p.main__break-title Break Length
-          div.main__break-wrapper.main__wrapper
-            button.main__break-decrease-btn.input-btn#break-decrease -
-            p.main__break--input.input-text#break-input 01
-            button.main__break-increase-btn.input-btn#break-increase +
-        section.section-input__session
-          p.main__session-title Session Length
-          div.main__session-wrapper.main__wrapper
-            button.main__session-decrease-btn.input-btn#session-decrease -
-            p.main__session--input.input-text#session-input 01
-            button.main__session-increase-btn.input-btn#session-increase +
-      section.main__section-timer
-        div.timer-wrapper#timer-wrapper
-          include templates/rectangles.pug
-      section.main__section-panel
-        button.main__start-btn.panel-btn#start-btn Start
-        button.main__reset-btn.panel-btn#reset-btn Reset
-    footer.footer
-      p.footer__text made by errec
+    div.container
+      header.header
+        h1.header__title POMODORO TIMER
+      main.main
+        section.main__section-input
+          section.section-input__break
+            p.main__break-title Break Length
+            div.main__break-wrapper.main__wrapper
+              button.main__break-decrease-btn.input-btn#break-decrease -
+              p.main__break--input.input-text#break-input 01
+              button.main__break-increase-btn.input-btn#break-increase +
+          section.section-input__session
+            p.main__session-title Session Length
+            div.main__session-wrapper.main__wrapper
+              button.main__session-decrease-btn.input-btn#session-decrease -
+              p.main__session--input.input-text#session-input 01
+              button.main__session-increase-btn.input-btn#session-increase +
+        section.main__section-timer
+          div.timer-wrapper#timer-wrapper
+            include templates/rectangles.pug
+        section.main__section-panel
+          button.main__start-btn.panel-btn#start-btn Start
+          button.main__reset-btn.panel-btn#reset-btn Reset
+      footer.footer
+        p.footer__text made by errec
 
   script(src="js/bundle.min.js")
