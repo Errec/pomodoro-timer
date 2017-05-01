@@ -30,8 +30,16 @@ html(lang="en")
               p.main__session--input.input-text#session-input 01
               button.main__session-increase-btn.input-btn#session-increase +
         section.main__section-timer
-          div.timer-wrapper#timer-wrapper
-            include templates/rectangles.pug
+          div.main__timer-border
+            div.main__timer-marker
+              span#span0 0 min
+              span#span1 5 min
+              span#span2 10 min
+              span#span3 15 min
+              span#span4 20 min
+              span#span5 25 min
+            div.main__timer-wrapper#timer-wrapper
+              include templates/rectangles.pug
         section.main__section-panel
           button.main__start-btn.panel-btn#start-btn Start
           button.main__reset-btn.panel-btn#reset-btn Reset
