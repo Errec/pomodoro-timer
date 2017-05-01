@@ -11,7 +11,7 @@ var setBreak = (function(){
   _render();
 
   function _render() {
-    breakInput.textContent = breakValue.toString();
+    breakInput.textContent = breakValue.toString() + ' min';
   }
 
   function _increment() {

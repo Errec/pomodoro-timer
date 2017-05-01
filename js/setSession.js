@@ -1,5 +1,5 @@
 var setSession = (function(){
-  var sessionValue = 20;
+  var sessionValue = 25;
 // Cache the DOM
   var sessionInput = document.getElementById('session-input');
   var incTime      = document.getElementById('session-increase');
@@ -11,7 +11,7 @@ var setSession = (function(){
   _render();
 
   function _render() {
-    sessionInput.textContent = sessionValue.toString();
+    sessionInput.textContent = sessionValue.toString() + ' min';
   }
 
   function _increment() {
