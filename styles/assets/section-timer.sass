@@ -3,7 +3,7 @@
 
 .main__timer-border
   display: inline-block
-  padding: 10px 32px 28px 32px
+  padding: 10px 32px 4px 32px
   border-radius: 2px
   border: solid $grey0 1px
 
@@ -13,7 +13,7 @@
     margin-right: 92px
     font-size: 10px
 
-#span5
+#time-tag-5
   margin-right: 0
 
 .main__timer-wrapper
@@ -33,6 +33,38 @@
   animation-name: change-bg
   animation-fill-mode: forwards
   animation-duration: 4s
+
+.legend-grid
+  padding: 0
+  margin: 0
+
+.main__timer-legend
+  float: right
+  padding-right: 4px
+  padding-top: 6px
+
+.legend-text
+  font-size: 11px
+
+.legend-rect
+  display: inline-block
+  list-style: none
+  width: 10px
+  height: 10px
+  margin: 0 1px
+
+#legend-rect-0
+  margin-left: 6px
+  background-color: $grey0
+#legend-rect-1
+  background-color: $green0
+#legend-rect-2
+  background-color: $green1
+#legend-rect-3
+  background-color: $green2
+#legend-rect-4
+  background-color: $green3
+  margin-right: 6px
 
 @keyframes change-bg
   0%

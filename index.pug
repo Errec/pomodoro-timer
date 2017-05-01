@@ -32,14 +32,23 @@ html(lang="en")
         section.main__section-timer
           div.main__timer-border
             div.main__timer-marker
-              span#span0 0 min
-              span#span1 5 min
-              span#span2 10 min
-              span#span3 15 min
-              span#span4 20 min
-              span#span5 25 min
+              span#time-tag-0 0 min
+              span#time-tag-1 5 min
+              span#time-tag-2 10 min
+              span#time-tag-3 15 min
+              span#time-tag-4 20 min
+              span#time-tag-5 25 min
             div.main__timer-wrapper#timer-wrapper
               include templates/rectangles.pug
+            div.main__timer-legend
+              ul.legend-grid
+                span.legend-text#legend-text-0 0 sec
+                li.legend-rect#legend-rect-0
+                li.legend-rect#legend-rect-1
+                li.legend-rect#legend-rect-2
+                li.legend-rect#legend-rect-3
+                li.legend-rect#legend-rect-4
+                span.legend-text#legend-text-1 1 sec
         section.main__section-panel
           button.main__start-btn.panel-btn#start-btn Start
           button.main__reset-btn.panel-btn#reset-btn Reset
