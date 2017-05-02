@@ -8,7 +8,6 @@
 @import 'assets/footer.sass'
 
 body, html
-  background-color: $bg
   color: $font
 
 h1, h2, h3, p
@@ -19,6 +18,6 @@ h1, h2, h3, p
   margin-right: auto
   margin-left: auto
   padding: 0 16px
-  outline: 1px solid black
 
 .main
+  padding-top: 10px

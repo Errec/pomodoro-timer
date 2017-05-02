@@ -11,12 +11,10 @@ html(lang="en")
   body
     div.container
       header.header
-        div.header__avatar
-          img.header__avatar-img(src="/img/avatar.png")
-        h2.header__title PomodoroHub
-        h3.header__subtitle Time to commit!
-      main.main
+        div.header__background
         section.main__section-input
+          include templates/watch-svg.pug
+          button.main__start-btn#start-btn
           section.section-input__break
             p.main__break-title Break Length
             div.main__break-wrapper.main__wrapper
@@ -29,6 +27,11 @@ html(lang="en")
               button.main__session-decrease-btn.input-btn#session-decrease -
               p.main__session--input.input-text#session-input 01
               button.main__session-increase-btn.input-btn#session-increase +
+      main.main
+        div.header__avatar
+          img.header__avatar-img(src="/img/avatar.png")
+        h2.header__title PomodoroHub
+        h3.header__subtitle Time to commit!
         section.main__section-timer
           div.main__timer-border
             div.main__timer-marker
@@ -49,8 +52,6 @@ html(lang="en")
                 li.legend-rect#legend-rect-3
                 li.legend-rect#legend-rect-4
                 span.legend-text#legend-text-1 1 sec
-        section.main__section-panel
-          button.main__start-btn#start-btn
       footer.footer
         p.footer__text
 
