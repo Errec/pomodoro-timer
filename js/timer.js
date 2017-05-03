@@ -41,17 +41,17 @@ _updateNumberOfRectangles();
     type === 'session' ? rectangle.className += " rect-animate-color" : rectangle.className = rectangle.className.replace(reg,' ');
   }
 
-function _countdownSwitch() {
-  if(playBtn) {
-    playBtn = false;
-    start.style.backgroundImage = "url(../img/reload-icon.svg)";
-    _startCountdown();
-  } else {
-    playBtn = true;
-    start.style.backgroundImage = "url(../img/play-icon.svg)";
-    _resetTimer();
+  function _countdownSwitch() {
+    if(playBtn) {
+      playBtn = false;
+      start.style.backgroundImage = "url(../img/reload-icon.svg)";
+      _startCountdown();
+    } else {
+      playBtn = true;
+      start.style.backgroundImage = "url(../img/play-icon.svg)";
+      _resetTimer();
+    }
   }
-}
 
   function _resetTimer() {
     _disableBtns(false);
