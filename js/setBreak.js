@@ -1,5 +1,5 @@
 var setBreak = (function(){
-  var breakValue = 5;
+  var breakValue = 1;
 // Cache the DOM
   var breakInput = document.getElementById('break-input');
   var incTime    = document.getElementById('break-increase');

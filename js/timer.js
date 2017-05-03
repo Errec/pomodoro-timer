@@ -7,6 +7,7 @@ var timer = (function() {
   var loopTimer             = null;
   var disable               = false;
   var playBtn               = true;
+  var minute                = 60000;
 // Cache the DOM
   var timerWrapper  = document.getElementById('timer-wrapper');
   var start         = document.getElementById('start-btn');
@@ -67,8 +68,8 @@ function _countdownSwitch() {
   }
 
   function _startCountdown() {
-    var sessionTime     = setSession.getValue() + 1;
-    var breakTime       = setBreak.getValue() + 1;
+    var sessionTime     = setSession.getValue();
+    var breakTime       = setBreak.getValue();
     var rectSessionTime = sessionTime / N_RECT;
     var rectBreakTime   =  breakTime / N_RECT;
     var s               = 0;
@@ -84,7 +85,7 @@ function _countdownSwitch() {
       _render(s,'session');
       s++;
       }
-    }, rectSessionTime * 1000);
+    }, rectSessionTime * minute);
 
     myBreakCountdown = setTimeout(function () {
       myBreakInnerCountdown = setInterval(function() {
@@ -92,8 +93,8 @@ function _countdownSwitch() {
           _render(b,'break');
           b++;
         }
-      }, rectBreakTime * 1000);
-    }, sessionTime * 1000);
+      }, rectBreakTime * minute);
+    }, sessionTime * minute);
 
     loopTimer = setTimeout(function() {
       clearTimeout(mySessionCountdown);
@@ -104,7 +105,7 @@ function _countdownSwitch() {
       } else {
         return;
       }
-    },(sessionTime + breakTime + 1) * 1000);
+    },(sessionTime + breakTime) * minute);
   }
 
   function _disableBtns(disable) {
