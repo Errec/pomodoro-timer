@@ -1,5 +1,5 @@
 var setSession = (function(){
-  var sessionValue = 1;
+  var sessionValue = 5;
 // Cache the DOM
   var sessionInput = document.getElementById('session-input');
   var incTime      = document.getElementById('session-increase');
@@ -11,16 +11,16 @@ var setSession = (function(){
   _render();
 
   function _render() {
-    sessionInput.textContent = sessionValue.toString() + ' min';
+    sessionValue === 5 ? sessionInput.textContent = '05 min' : sessionInput.textContent = sessionValue.toString() + ' min';
   }
 
   function _increment() {
-    sessionValue === 360 ? '' : sessionValue++;
+    sessionValue === 360 ? '' : sessionValue += 5;
     _render();
   }
 
   function _decrement() {
-    sessionValue === 1 ? '' : sessionValue--;
+    sessionValue === 5 ? '' : sessionValue -= 5;
     _render();
   }
 

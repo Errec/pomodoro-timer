@@ -1,5 +1,5 @@
 var setBreak = (function(){
-  var breakValue = 1;
+  var breakValue = 5;
 // Cache the DOM
   var breakInput = document.getElementById('break-input');
   var incTime    = document.getElementById('break-increase');
@@ -11,7 +11,7 @@ var setBreak = (function(){
   _render();
 
   function _render() {
-    breakInput.textContent = breakValue.toString() + ' min';
+    breakValue === 5 ? breakInput.textContent = '05 min' : breakInput.textContent = breakValue.toString() + ' min';
   }
 
   function _increment() {

@@ -12,10 +12,10 @@ var timeMarkers = (function(){
   decTime.addEventListener('click', _render);
 
   function _render() {
-    mark0.textContent = Math.floor(setSession.getValue() / 5 * 1).toString() + ' min';
-    mark1.textContent = Math.floor(setSession.getValue() / 5 * 2).toString() + ' min';
-    mark2.textContent = Math.floor(setSession.getValue() / 5 * 3).toString() + ' min';
-    mark3.textContent = Math.floor(setSession.getValue() / 5 * 4).toString() + ' min';
-    mark4.textContent = Math.floor(setSession.getValue() / 5 * 5).toString() + ' min';
+    mark0.textContent = addZero(Math.floor(setSession.getValue() / 5 * 1)).toString() + ' min';
+    mark1.textContent = addZero(Math.floor(setSession.getValue() / 5 * 2)).toString() + ' min';
+    mark2.textContent = addZero(Math.floor(setSession.getValue() / 5 * 3)).toString() + ' min';
+    mark3.textContent = addZero(Math.floor(setSession.getValue() / 5 * 4)).toString() + ' min';
+    mark4.textContent = addZero(Math.floor(setSession.getValue() / 5 * 5)).toString() + ' min';
   }
 })();
