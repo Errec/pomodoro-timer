@@ -8,7 +8,6 @@ var setBreak = (function(){
   incTime.addEventListener('click', _increment);
   decTime.addEventListener('click', _decrement);
 // Render the initial value from breakValue
-  _render();
 
   function _render() {
     breakValue === 5 ? breakInput.textContent = '05 min' : breakInput.textContent = breakValue.toString() + ' min';

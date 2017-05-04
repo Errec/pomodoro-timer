@@ -8,7 +8,6 @@ var setSession = (function(){
   incTime.addEventListener('click', _increment);
   decTime.addEventListener('click', _decrement);
 // Render the initial value from sessionValue
-  _render();
 
   function _render() {
     sessionValue === 5 ? sessionInput.textContent = '05 min' : sessionInput.textContent = sessionValue.toString() + ' min';
