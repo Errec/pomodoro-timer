@@ -71,7 +71,7 @@ _updateNumberOfRectangles();
     var sessionTime     = setSession.getValue();
     var breakTime       = setBreak.getValue();
     var rectSessionTime = sessionTime / N_RECT;
-    var rectBreakTime   =  breakTime / N_RECT;
+    var rectBreakTime   = breakTime / N_RECT;
     var s               = 0;
     var b               = 0;
     playOn              = true;
@@ -111,14 +111,22 @@ _updateNumberOfRectangles();
   function _disableBtns(disable) {
     if(disable === false) {
       sessionIncBtn.disabled = false;
+      sessionIncBtn.style.backgroundColor = "#f7f9fa";
       sessionDecBtn.disabled = false;
+      sessionDecBtn.style.backgroundColor = "#f7f9fa";
       breakIncBtn.disabled   = false;
+      breakIncBtn.style.backgroundColor   = "#f7f9fa";
       breakDecBtn.disabled   = false;
+      breakDecBtn.style.backgroundColor   = "#f7f9fa";
     } else {
       sessionIncBtn.disabled = true;
+      sessionIncBtn.style.backgroundColor = "#BCBCBC";
       sessionDecBtn.disabled = true;
+      sessionDecBtn.style.backgroundColor = "#BCBCBC";
       breakIncBtn.disabled   = true;
+      breakIncBtn.style.backgroundColor   = "#BCBCBC";
       breakDecBtn.disabled   = true;
+      breakDecBtn.style.backgroundColor   = "#BCBCBC";
     }
   }
 
