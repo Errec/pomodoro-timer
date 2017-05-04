@@ -15,12 +15,12 @@ var setBreak = (function(){
   }
 
   function _increment() {
-    breakValue === 60 ? '' : breakValue++;
+    breakValue === 60 ? '' : breakValue += 5;
     _render();
   }
 
   function _decrement() {
-    breakValue === 1 ? '' : breakValue--;
+    breakValue === 5 ? '' : breakValue -= 5;
     _render();
   }
 
