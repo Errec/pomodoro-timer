@@ -64,7 +64,7 @@ _updateNumberOfRectangles();
     clearTimeout(myBreakInnerCountdown);
     clearTimeout(loopTimer);
     clearTimeout(commitUpdate);
-    commitCount.textContent = 0;
+    commitCount.textContent = '0 contributions in the current session';
     displayValue = setSession.getValue();
     for (var i = 0; i <= N_RECT; i++) {
       _render(i,'reset');
